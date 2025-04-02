@@ -28,11 +28,12 @@ function traverse(obj){
         }
 
         if(Array.isArray(obj[prop])) type = "(type: array)";  
+        else if(Object.is(obj[prop], null)) type = "(type: null)"
         else if(typeof obj[prop] === "object") type = "(type: object)";
         else if(typeof obj[prop] === "string") type = "(type: string)";
         else if (typeof obj[prop] === "number") type = "(type: number)";
         else if(typeof obj[prop] === "boolean") type = "(type: boolean)";
-    
+        else type = "(type: undefined)"
         return type;
     }
     
@@ -77,7 +78,10 @@ function traverse(obj){
 
 
   
-
+const obj = {
+  department: [{sales: [{name: "john"},{name: null}]}],
+  prop: undefined
+}
   
 
-
+traverse(obj);
