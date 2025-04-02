@@ -77,11 +77,3 @@ function traverse(obj){
   }
 
 
-  
-const obj = {
-  department: [{sales: [{name: "john"},{name: null}]}],
-  prop: undefined
-}
-  
-
-traverse(obj);
